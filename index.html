@@ -276,7 +276,7 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <div class="container p-4 success-form" id="success-form">
+      <div class="container p-4 success-form" id="submissionMessage">
         <div class="mb-3 success-form-heading">Leave it with us, <br><span id="displayFirstName"></span></div>
         <img src="images/mail-check.png" alt="">
         <div class="success-form-subheading">We will get back to you within 24 hours.</div>
@@ -288,11 +288,9 @@
       var firstName = document.getElementById('first_name').value;
       document.getElementById("displayFirstName").innerText = firstName;
   
-const handleSubmit = (event) => {
+      const handleSubmit = (event) => {
   event.preventDefault();
-      var firstName = document.getElementById('first_name').value;
-      document.getElementById("displayFirstName").innerText = firstName;
-    
+
   const myForm = event.target;
   const formData = new FormData(myForm);
   
@@ -301,29 +299,27 @@ const handleSubmit = (event) => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
   })
-    .then(() => showModal()) // Show modal on successful submission
+    .then(() => {
+      showSubmissionMessage(); // Show message on successful submission
+      myForm.reset(); // Reset the form
+      myForm.style.display = "none"; // Hide the form
+    })
     .catch((error) => alert(error));
 };
 
-// Function to show the modal
-const showModal = () => {
-  const modal = document.getElementById("myModal");
-  const span = document.getElementsByClassName("close")[0];
+// Function to show the submission message
+const showSubmissionMessage = () => {
+  const submissionMessage = document.getElementById("submissionMessage");
+  submissionMessage.style.display = "block";
 
-  modal.style.display = "block";
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+  // Hide the message after 3 seconds
+  setTimeout(() => {
+    submissionMessage.style.display = "none";
+  }, 3000);
 };
+
+document.querySelector("form").addEventListener("submit", handleSubmit);
+
 
 document.querySelector("form").addEventListener("submit", handleSubmit);
 
