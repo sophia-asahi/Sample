@@ -339,162 +339,162 @@ document.querySelector("form").addEventListener("submit", handleSubmit);
 //     .catch((error) => alert(error));
 // };
 
-    // function validateEmail(email) {
-    //   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //   return re.test(email);
-    // }
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
 
-    // function validatePhone(phone) {
-    //   const re = /^\d{10}$/;
-    //   return re.test(phone);
-    // }
+    function validatePhone(phone) {
+      const re = /^\d{10}$/;
+      return re.test(phone);
+    }
 
-    // function validateForm() {
-    //   const firstName = document.getElementById('first_name').value.trim();
-    //   const lastName = document.getElementById('last_name').value.trim();
-    //   const email = document.getElementById('email').value.trim();
-    //   const phone = document.getElementById('phone').value.trim();
-    //   const community = document.getElementById('community').value.trim();
-    //   const location = document.getElementById('location').value.trim();
-    //   const apartment = document.getElementById('apartment').value.trim();
-    //   const resident = document.getElementById('resident').value.trim();
+    function validateForm() {
+      const firstName = document.getElementById('first_name').value.trim();
+      const lastName = document.getElementById('last_name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const community = document.getElementById('community').value.trim();
+      const location = document.getElementById('location').value.trim();
+      const apartment = document.getElementById('apartment').value.trim();
+      const resident = document.getElementById('resident').value.trim();
 
-    //   document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
+      document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
 
-    //   let isValid = true;
+      let isValid = true;
 
-    //   if (firstName === '') {
-    //     document.getElementById('first_name_error').textContent = 'First name is required';
-    //     isValid = false;
-    //   }
+      if (firstName === '') {
+        document.getElementById('first_name_error').textContent = 'First name is required';
+        isValid = false;
+      }
 
-    //   if (lastName === '') {
-    //     document.getElementById('last_name_error').textContent = 'Last name is required';
-    //     isValid = false;
-    //   }
+      if (lastName === '') {
+        document.getElementById('last_name_error').textContent = 'Last name is required';
+        isValid = false;
+      }
 
-    //   if (email === '') {
-    //     document.getElementById('email_error').textContent = 'Email is required';
-    //     isValid = false;
-    //   } else if (!validateEmail(email)) {
-    //     document.getElementById('email_error').textContent = 'Invalid email format';
-    //     isValid = false;
-    //   }
+      if (email === '') {
+        document.getElementById('email_error').textContent = 'Email is required';
+        isValid = false;
+      } else if (!validateEmail(email)) {
+        document.getElementById('email_error').textContent = 'Invalid email format';
+        isValid = false;
+      }
 
-    //   if (phone === '') {
-    //     document.getElementById('phone_error').textContent = 'Phone is required';
-    //     isValid = false;
-    //   } else if (!validatePhone(phone)) {
-    //     document.getElementById('phone_error').textContent = 'Phone number should be 10 digits only';
-    //     isValid = false;
-    //   }
+      if (phone === '') {
+        document.getElementById('phone_error').textContent = 'Phone is required';
+        isValid = false;
+      } else if (!validatePhone(phone)) {
+        document.getElementById('phone_error').textContent = 'Phone number should be 10 digits only';
+        isValid = false;
+      }
 
-    //   if (community === '') {
-    //     document.getElementById('community_error').textContent = 'Community name is required';
-    //     isValid = false;
-    //   }
+      if (community === '') {
+        document.getElementById('community_error').textContent = 'Community name is required';
+        isValid = false;
+      }
 
-    //   if (location === '') {
-    //     document.getElementById('location_error').textContent = 'Location is required';
-    //     isValid = false;
-    //   }
+      if (location === '') {
+        document.getElementById('location_error').textContent = 'Location is required';
+        isValid = false;
+      }
 
-    //   if (apartment === '') {
-    //     document.getElementById('apartment_error').textContent = 'Apartment count is required';
-    //     isValid = false;
-    //   }
+      if (apartment === '') {
+        document.getElementById('apartment_error').textContent = 'Apartment count is required';
+        isValid = false;
+      }
 
-    //   if (apartment == 0) {
-    //     document.getElementById('apartment_error').textContent = 'Apartment count should not be zero';
-    //     isValid = false;
-    //   }
-    //   if (resident === '') {
-    //     document.getElementById('resident_error').textContent = 'Resident count is required';
-    //     isValid = false;
-    //   }
+      if (apartment == 0) {
+        document.getElementById('apartment_error').textContent = 'Apartment count should not be zero';
+        isValid = false;
+      }
+      if (resident === '') {
+        document.getElementById('resident_error').textContent = 'Resident count is required';
+        isValid = false;
+      }
 
-    //   if (resident == 0) {
-    //     document.getElementById('resident_error').textContent = 'Resident count should not be zero';
-    //     isValid = false;
-    //   }
+      if (resident == 0) {
+        document.getElementById('resident_error').textContent = 'Resident count should not be zero';
+        isValid = false;
+      }
 
-    //   if (isValid) {
-    //     alert('Form submitted successfully');
-    //   }
-    // }
+      if (isValid) {
+        alert('Form submitted successfully');
+      }
+    }
 
-    // document.getElementById('submitBtn').addEventListener('click', function () {
-    //   validateForm();
-    // });
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      validateForm();
+    });
 
-    // document.querySelectorAll('input').forEach(input => {
-    //   input.addEventListener('blur', function () {
-    //     const id = input.id;
-    //     const value = input.value.trim();
-    //     const errorId = id + '_error';
-    //     const errorMessage = document.getElementById(errorId);
-    //     errorMessage.textContent = '';
-    //     switch (id) {
-    //       case 'first_name':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'First name is required';
-    //         }
-    //         break;
-    //       case 'last_name':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Last name is required';
-    //         }
-    //         break;
-    //       case 'email':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Email is required';
-    //         } else if (!validateEmail(value)) {
-    //           errorMessage.textContent = 'Invalid email format';
-    //         }
-    //         break;
-    //       case 'phone':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Phone is required';
-    //         } else if (!validatePhone(value)) {
-    //           errorMessage.textContent = 'Phone number should only be 10 digits';
-    //         }
-    //         break;
-    //       case 'community':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Community name is required';
-    //         }
-    //         break;
-    //       case 'location':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Location is required';
-    //         }
-    //         break;
-    //       case 'apartment':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Apartment count is required';
-    //         } else if (value == 0) {
-    //           errorMessage.textContent = 'Apartment count should not be zero';
-    //         }
-    //         break;
-    //       case 'resident':
-    //         if (value === '') {
-    //           errorMessage.textContent = 'Resident count is required';
-    //         } else if (value == 0) {
-    //           errorMessage.textContent = 'Resident count should not be zero';
-    //         }
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //   });
-    //   if ((input.id === 'resident') || (input.id === 'apartment')) {
-    //     input.addEventListener('keypress', function (event) {
-    //       if (event.key === '.') {
-    //         event.preventDefault();
-    //       }
-    //     });
-    //   }
-    // });
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('blur', function () {
+        const id = input.id;
+        const value = input.value.trim();
+        const errorId = id + '_error';
+        const errorMessage = document.getElementById(errorId);
+        errorMessage.textContent = '';
+        switch (id) {
+          case 'first_name':
+            if (value === '') {
+              errorMessage.textContent = 'First name is required';
+            }
+            break;
+          case 'last_name':
+            if (value === '') {
+              errorMessage.textContent = 'Last name is required';
+            }
+            break;
+          case 'email':
+            if (value === '') {
+              errorMessage.textContent = 'Email is required';
+            } else if (!validateEmail(value)) {
+              errorMessage.textContent = 'Invalid email format';
+            }
+            break;
+          case 'phone':
+            if (value === '') {
+              errorMessage.textContent = 'Phone is required';
+            } else if (!validatePhone(value)) {
+              errorMessage.textContent = 'Phone number should only be 10 digits';
+            }
+            break;
+          case 'community':
+            if (value === '') {
+              errorMessage.textContent = 'Community name is required';
+            }
+            break;
+          case 'location':
+            if (value === '') {
+              errorMessage.textContent = 'Location is required';
+            }
+            break;
+          case 'apartment':
+            if (value === '') {
+              errorMessage.textContent = 'Apartment count is required';
+            } else if (value == 0) {
+              errorMessage.textContent = 'Apartment count should not be zero';
+            }
+            break;
+          case 'resident':
+            if (value === '') {
+              errorMessage.textContent = 'Resident count is required';
+            } else if (value == 0) {
+              errorMessage.textContent = 'Resident count should not be zero';
+            }
+            break;
+          default:
+            break;
+        }
+      });
+      if ((input.id === 'resident') || (input.id === 'apartment')) {
+        input.addEventListener('keypress', function (event) {
+          if (event.key === '.') {
+            event.preventDefault();
+          }
+        });
+      }
+    });
   </script>
 
 </body>
