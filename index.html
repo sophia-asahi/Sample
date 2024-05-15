@@ -275,18 +275,10 @@
   </div>
 
   <script>
-    document.getElementById("submitBtn").addEventListener("click", function () {
-      var firstName = document.getElementById('first_name').value;
-      document.getElementById("displayFirstName").innerText = firstName;
-    });
-    // $(document).ready(function(){
-    // $("#submitBtn").click(function(){
-    //     $("#demo").hide();
-     
-    // });})
-
+   
     const handleSubmit = (event) => {
   event.preventDefault();
+
 
   const myForm = event.target;
   const formData = new FormData(myForm);
@@ -298,6 +290,10 @@
   })
     .then(() => navigate("/thank-you/"))
     .catch((error) => alert(error));
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      var firstName = document.getElementById('first_name').value;
+      document.getElementById("displayFirstName").innerText = firstName;
+    });
     $("#success-form").show();
 };
 
