@@ -4,10 +4,5 @@ $(document).ready(function () {
 $(document).ready(function(){
 $("#success-form").hide();
 });
-$(document).ready(function(){
-    $("#submitBtn").click(function(){
-        $("#demo").hide();
-      $("#success-form").show();
-    });})
 
 

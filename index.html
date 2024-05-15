@@ -279,6 +279,12 @@
       var firstName = document.getElementById('first_name').value;
       document.getElementById("displayFirstName").innerText = firstName;
     });
+    // $(document).ready(function(){
+    // $("#submitBtn").click(function(){
+    //     $("#demo").hide();
+     
+    // });})
+
     const handleSubmit = (event) => {
   event.preventDefault();
 
@@ -292,6 +298,7 @@
   })
     .then(() => navigate("/thank-you/"))
     .catch((error) => alert(error));
+    $("#success-form").show();
 };
 
     // function validateEmail(email) {
