@@ -278,21 +278,8 @@
     <input type="email" id="email" placeholder="Your Email" required>
     <button type="submit">Submit</button>
   </form>
-  <div id="successMessage">FGFDHGDFHDFGHFHD</div>
+  <div id="successMessage"></div>
   <script>
-    // Function to show the form and hide the success message
-    // function showForm() {
-    //   document.getElementById('myForm').style.display = 'block';
-    //   document.getElementById('successMessage').style.display = 'none';
-    // }
-  
-    // Function to show the success message and hide the form
-    function showSuccessMessage() {
-      // document.getElementById('myForm').style.display = 'none';
-      document.getElementById('successMessage').style.display = 'block';
-    }
-  
-    // Function to handle form submission
     document.getElementById('myForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
   
@@ -311,24 +298,23 @@
         body: new URLSearchParams(formData).toString()
       })
       .then(function(response) {
-        // Display success message and hide the form
-        showSuccessMessage();
-        // Reset form after 5 seconds
-        // setTimeout(function() {
-          document.getElementById('myForm').reset();
-          document.getElementById('myForm').hide();
-          // showForm();
-        // }, 5000);
+        // Display success message
+        document.getElementById('myForm').reset();
+        document.getElementById('myForm').hide();
+
+
+        document.getElementById('successMessage').innerHTML = 'Thank you for your submission!';
+        // You can also redirect the user to another page if needed
+        // window.location.href = '/success.html';
       })
       .catch(function(error) {
         console.error('Error:', error);
       });
     });
-  
-    // Show form on page load
     window.addEventListener('load', function() {
-      showForm();
-    });
+      document.getElementById('myForm').reset();
+      document.getElementById('successMessage').hide();
+  });
   </script>
   
   
