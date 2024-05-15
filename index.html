@@ -273,14 +273,17 @@
       <div class="success-form-subheading">We will get back to you within 24 hours.</div>
     </div> -->
   </div>
-  
+  <div></div>
  
   <script>
+    const form = document.querySelector('form');
+form.addEventListener('submit', handleSubmit);  
 const handleSubmit = (event) => {
   event.preventDefault();
 
   const myForm = event.target;
   const formData = new FormData(myForm);
+  console.log('Form Data:', formData);
 
   fetch("/", {
     method: "POST",
@@ -288,7 +291,7 @@ const handleSubmit = (event) => {
     body: new URLSearchParams(formData).toString(),
   })
     .then(() => {
-      // Custom message display
+      console.log('Form submitted successfully!');
       const successMessage = document.createElement('div');
       successMessage.innerHTML = `
         <div class="container p-4 success-form" id="success-form">
@@ -296,13 +299,42 @@ const handleSubmit = (event) => {
           <div class="success-form-subheading">We will get back to you soon....</div>
         </div>
       `;
-      // Append success message to the form container
       myForm.parentNode.insertBefore(successMessage.firstChild, myForm.nextSibling);
-      // Hide the form
       myForm.style.display = 'none';
     })
-    .catch((error) => alert(error));
+    .catch((error) => {
+      console.error('Form submission failed:', error);
+      alert('Form submission failed. Please try again later.');
+    });
 };
+
+// const handleSubmit = (event) => {
+//   event.preventDefault();
+
+//   const myForm = event.target;
+//   const formData = new FormData(myForm);
+
+//   fetch("/", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//     body: new URLSearchParams(formData).toString(),
+//   })
+//     .then(() => {
+//       // Custom message display
+//       const successMessage = document.createElement('div');
+//       successMessage.innerHTML = `
+//         <div class="container p-4 success-form" id="success-form">
+//           <div class="mb-3 success-form-heading">Thank You for Your Submission!</div>
+//           <div class="success-form-subheading">We will get back to you soon....</div>
+//         </div>
+//       `;
+//       // Append success message to the form container
+//       myForm.parentNode.insertBefore(successMessage.firstChild, myForm.nextSibling);
+//       // Hide the form
+//       myForm.style.display = 'none';
+//     })
+//     .catch((error) => alert(error));
+// };
 
 //     const handleSubmit = (event) => {
 //   event.preventDefault();
