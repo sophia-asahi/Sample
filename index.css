@@ -384,6 +384,7 @@
     line-height: 28px;
 }
 .success-form {
+    display: none;
     border-radius: 1px solid #FAE387;
     background-color: #FAE387;
     max-width: 950px;
