@@ -279,12 +279,10 @@
 
 var firstName = document.getElementById('first_name').value;
     document.getElementById("displayFirstName").innerText = firstName;
-var demo =  document.getElementById("demo");
+
     const handleSubmit = (event) => {
       event.preventDefault();
-      var firstName = document.getElementById('first_name').value;
-    document.getElementById("displayFirstName").innerText = firstName;
-var demo =  document.getElementById("demo");
+
       const myForm = event.target;
       const formData = new FormData(myForm);
 
@@ -302,7 +300,9 @@ var demo =  document.getElementById("demo");
         })
         .catch((error) => alert(error));
     };
-
+    const demo = () => {
+      const demo = document.getElementById("demo");
+    };
     const showSubmissionMessage = () => {
       const submissionMessage = document.getElementById("submissionMessage");
       submissionMessage.style.display = "block";
