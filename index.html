@@ -299,31 +299,21 @@
       })
       .then(function(response) {
         // Display success message
+        document.getElementById('successMessage').style.display = 'block';
         document.getElementById('successMessage').innerHTML = 'Thank you for your submission!';
         // Hide success message after 5 seconds
         setTimeout(function() {
           document.getElementById('successMessage').style.display = 'none';
         }, 5000);
-        // You can also redirect the user to another page if needed
-        // window.location.href = '/success.html';
+        // Reset form fields
+        document.getElementById('myForm').reset();
       })
       .catch(function(error) {
         console.error('Error:', error);
       });
     });
-  
-    // Hide success message when the user clicks anywhere outside it
-    document.addEventListener('click', function(event) {
-      if (!event.target.closest('#successMessage')) {
-        document.getElementById('successMessage').style.display = 'none';
-      }
-    });
-  
-    // Hide success message when the form is reset
-    document.getElementById('myForm').addEventListener('reset', function() {
-      document.getElementById('successMessage').style.display = 'none';
-    });
   </script>
+  
   
   
   <script>
