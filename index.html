@@ -276,12 +276,15 @@
 
 
   <script>
-    var firstName = document.getElementById('first_name').value;
-    document.getElementById("displayFirstName").innerText = firstName;
 
+var firstName = document.getElementById('first_name').value;
+    document.getElementById("displayFirstName").innerText = firstName;
+var demo =  document.getElementById("demo");
     const handleSubmit = (event) => {
       event.preventDefault();
-
+      var firstName = document.getElementById('first_name').value;
+    document.getElementById("displayFirstName").innerText = firstName;
+var demo =  document.getElementById("demo");
       const myForm = event.target;
       const formData = new FormData(myForm);
 
@@ -294,7 +297,7 @@
           
           myForm.reset();
           myForm.style.display = "none";
-          document.getElementById("demo").hide();
+          demo.hide();
           showSubmissionMessage();
         })
         .catch((error) => alert(error));
