@@ -276,9 +276,8 @@
 
   <script>
    
-    const handleSubmit = (event) => {
+   const handleSubmit = (event) => {
   event.preventDefault();
-
 
   const myForm = event.target;
   const formData = new FormData(myForm);
@@ -288,14 +287,18 @@
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
   })
-    .then(() => navigate("/thank-you/"))
-    .catch((error) => alert(error));
-    document.getElementById("submitBtn").addEventListener("click", function () {
-      var firstName = document.getElementById('first_name').value;
-      document.getElementById("displayFirstName").innerText = firstName;
-    });
-    $("#success-form").show();
+    .then(() => {
+      // After successful form submission
+      navigate("/thank-you/"); // Navigating to thank you page
+      const firstName = document.getElementById('first_name').value; // Getting the value of first name
+      document.getElementById("displayFirstName").innerText = firstName; // Displaying first name in the success message
+      document.getElementById("success-form").style.display = "block"; // Showing the success message
+    })
+    .catch((error) => alert(error)); // Alerting if there's any error during form submission
 };
+
+document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+
 
     // function validateEmail(email) {
     //   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
