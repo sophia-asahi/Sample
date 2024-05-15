@@ -276,31 +276,25 @@
   <div id="form-submit-status-element"></div>
  
   <script>
-const downloadForm = document.getElementById("download-form");
+const handleSubmit = (event) => {
+  event.preventDefault();
 
-const formSubmitStatusElement = document.getElementById("form-submit-status-element");
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  let formData = new FormData(downloadForm);
-
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+  
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams(formData).toString(),
   })
-    .then(() => {
-      // Show the success message when form submission is successful in formSubmitStatusElement 
-      formSubmitStatusElement.innerHTML = `<p>Your Success Message Here</p>`;
-      downloadForm.reset();
-    })
-    .catch((error) => {
-      //Show an error message when form submission fails in formSubmitStatusElement 
-      formSubmitStatusElement.innerHTML = `<p>There was an error submitting your form. Kindly try again.</p>`;
-    });
+    .then(() => alert("Thank you for your submission............"))
+    .catch((error) => alert(error));
 };
 
-downloadForm.addEventListener("submit", handleSubmit);
+document
+  .querySelector("form")
+  .addEventListener("submit", handleSubmit);
+
 //     const handleSubmit = (event) => {
 //   event.preventDefault();
 
