@@ -301,8 +301,8 @@ var firstName = document.getElementById('first_name').value;
         .catch((error) => alert(error));
     };
     const demo = () => {
-      document.getElementById("demo").hide();
-    };
+  document.getElementById("demo").style.display = "none";
+};
     const showSubmissionMessage = () => {
       const submissionMessage = document.getElementById("submissionMessage");
       submissionMessage.style.display = "block";
