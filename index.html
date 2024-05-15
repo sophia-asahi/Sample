@@ -255,7 +255,7 @@
             </div>
             <div class="col-md-12">
               <div class="form-group">
-                <input type="text" autocomplete="off" name="details" required /><label> Details you want to share?
+                <input type="text" autocomplete="off" name="details" /><label> Details you want to share?
                   (Optional)</label>
               </div>
             </div>
@@ -291,9 +291,11 @@
         body: new URLSearchParams(formData).toString(),
       })
         .then(() => {
-          showSubmissionMessage();
+          
           myForm.reset();
           myForm.style.display = "none";
+          document.getElementById("demo").hide();
+          showSubmissionMessage();
         })
         .catch((error) => alert(error));
     };
