@@ -295,13 +295,13 @@ var firstName = document.getElementById('first_name').value;
           
           myForm.reset();
           myForm.style.display = "none";
-          demo.hide();
+          demo();
           showSubmissionMessage();
         })
         .catch((error) => alert(error));
     };
     const demo = () => {
-      const demo = document.getElementById("demo");
+      document.getElementById("demo").hide();
     };
     const showSubmissionMessage = () => {
       const submissionMessage = document.getElementById("submissionMessage");
