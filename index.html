@@ -280,6 +280,17 @@
   </form>
   <div id="successMessage"></div>
   <script>
+    // Function to reset form and show success message
+    function handleFormSubmission() {
+      // Reset form fields
+      document.getElementById('myForm').reset();
+      // Hide form
+      document.getElementById('myForm').style.display = 'none';
+      // Show success message
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  
+    // Function to handle form submission
     document.getElementById('myForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
   
@@ -298,21 +309,20 @@
         body: new URLSearchParams(formData).toString()
       })
       .then(function(response) {
-        // Display success message
-        document.getElementById('successMessage').style.display = 'block';
-        document.getElementById('successMessage').innerHTML = 'Thank you for your submission!';
-        // Hide success message after 5 seconds
-        setTimeout(function() {
-          document.getElementById('successMessage').style.display = 'none';
-        }, 5000);
-        // Reset form fields
-        document.getElementById('myForm').reset();
+        // Check if response is OK
+        if (response.ok) {
+          // Handle form submission
+          handleFormSubmission();
+        } else {
+          throw new Error('Failed to submit form');
+        }
       })
       .catch(function(error) {
         console.error('Error:', error);
       });
     });
   </script>
+  
   
   
   
